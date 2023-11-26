@@ -1,12 +1,134 @@
 header{
-	background-color: #BEE7AE;
-	text-align: center;
-	padding: 10px;
-	font-size: 32px;
-	font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+	/* padding: 20px; */
+	font-size: 24px;
+	
 }
 
 body{
-	
-	margin-left: 0px;
+	max-width: 100%;
+	margin: 0px;
+	font-family: "MerriweatherRegular";
 }
+
+.mainImg{
+	z-index: -1;
+	display: block;
+	position: absolute;
+	min-width: 100%;
+	max-width: 100%;
+}
+
+main{
+	display: flex;
+	
+}
+
+.firstStep{
+	text-align: center;
+	margin-top: 20%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.gameName{
+	font-size: 40px;
+	padding: 10px;
+	color: white;
+	background-color: #e2ffe200;
+	
+	text-shadow: 4px 4px 5px #000000;
+	/*-webkit-text-stroke: 1px black; */
+}
+
+button{
+	font-family: "MerriweatherRegular";
+	border-radius: 16px;
+	background-color: #e2ffe2;
+	box-shadow: 2px 2px 7px #000000dd;
+}
+
+.begin{
+	padding: 10px;
+	margin-top: 30px;
+
+	font-size: 24px;
+}
+
+.begin:hover{
+	transform: scale(1.1);
+}
+
+.dialogue{
+	border-radius: 16px;
+	border-bottom-left-radius: 0px;
+	background-color: #e2ffe2;
+	box-shadow: 2px 2px 7px #000000dd;
+}
+
+#pugalo{
+	display: none;
+	flex-direction: row;
+	
+	margin-left: 5%;
+	margin-top: 20%;
+}
+
+#pugaloImg{
+	width: 25vw;
+	height: auto;
+	max-height:100%;
+}
+
+#hello{
+	width: 35vw;
+	height: auto;
+	max-height: max-content;
+
+	height: fit-content;	
+	font-size: 24px;
+	padding: 10px;
+	margin-top: 10em;
+}
+
+.menu{
+	position: fixed;
+	display: flex;
+	flex-direction: row;
+	width: fit-content;
+	/* background: linear-gradient(#d2ffd280, 10%, #d2ffd2, 90%, #d2ffd280); 
+	background-color: #d2ffd2;*/
+	
+	/*background: radial-gradient(#d2ffd2, 80%, white);*/
+	background-color: #e2ffe2;
+	border-bottom-right-radius: 16px;
+	box-shadow: 2px 2px 7px #000000dd;
+	
+	/* gap: 20px; */
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+.menuItem{
+	padding: 10px;
+	
+	border-collapse: collapse;
+}
+
+.menuItem:hover{
+	transform: scale(1.1);
+}
+
+footer{
+	position: absolute;
+	top: 100%;
+	padding: 2em;
+	color: white;
+	background-color: black;	
+}
+
+@font-face {
+	font-family: "MerriweatherRegular"; 
+	src: url("fonts/Merriweather-Regular.ttf") format("truetype"); 
+	font-style: normal; 
+	font-weight: normal; 
+  } 
