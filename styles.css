@@ -102,21 +102,27 @@ button{
 	border-bottom-right-radius: 16px;
 	box-shadow: 2px 2px 7px #000000dd;
 	
-	/* gap: 20px;
-	padding-right: 10px;
-	padding-left: 10px;*/
 }
 
 .menuItem{
 	padding: 10px;
 
-	border-left: 2px solid black;
+	
 	border-collapse: collapse;
+}
+
+.menuRef{
+	text-decoration: none;
+	color:black;
 }
 
 .menuRef:hover{
 	display: block;
 	transform: scale(1.07);
+}
+
+.characters{
+	border-right: 1.5px solid black;
 }
 
 footer{
