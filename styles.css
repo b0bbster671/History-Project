@@ -1,7 +1,6 @@
 header{
 	/* padding: 20px; */
 	font-size: 24px;
-	
 }
 
 body{
@@ -10,7 +9,7 @@ body{
 	font-family: "MerriweatherRegular";
 }
 
-.mainImg{
+#mainImg{
 	z-index: -1;
 	display: block;
 	position: absolute;
@@ -103,27 +102,44 @@ button{
 	border-bottom-right-radius: 16px;
 	box-shadow: 2px 2px 7px #000000dd;
 	
-	/* gap: 20px; */
+	/* gap: 20px;
 	padding-right: 10px;
-	padding-left: 10px;
+	padding-left: 10px;*/
 }
 
 .menuItem{
 	padding: 10px;
-	
+
+	border-left: 2px solid black;
 	border-collapse: collapse;
 }
 
-.menuItem:hover{
-	transform: scale(1.1);
+.menuRef:hover{
+	display: block;
+	transform: scale(1.07);
 }
 
 footer{
+	display: flex;
+	flex-direction: row;
+	gap: 20px;
 	position: absolute;
 	top: 100%;
-	padding: 2em;
+	padding: 1em;
 	color: white;
 	background-color: black;	
+}
+
+#ithub{
+	margin-top: 2.5em;
+	width: 100px;
+	height:fit-content;
+	filter: invert(100%);
+}
+
+#footerText{
+	display: flex;
+	flex-direction: column;
 }
 
 @font-face {
