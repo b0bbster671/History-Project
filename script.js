@@ -3,7 +3,7 @@ var header = document.getElementById('header');
 var pugalo = document.getElementById('pugalo');
 var mainImg = document.getElementById('mainImg');
 
-function beginClicked()
+function beginButtonClicked()
 {
     firstStep.style.display= 'none';
     header.style.display= 'none';

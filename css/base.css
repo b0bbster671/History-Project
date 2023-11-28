@@ -1,0 +1,53 @@
+body{
+	max-width: 100%;
+	margin: 0px;
+	font-family: "MerriweatherRegular";
+}
+
+button{
+	font-family: "MerriweatherRegular";
+	border-radius: 16px;
+	background-color: #e2ffe2;
+	box-shadow: 2px 2px 7px #000000dd;
+
+    padding: 10px;
+}
+
+.dialogue{
+	font-size: 24px;
+	padding: 10px;
+	border-radius: 16px;
+	
+	background-color: #e2ffe2;
+	box-shadow: 2px 2px 7px #000000dd;
+}
+
+footer{
+	display: flex;
+	flex-direction: row;
+	gap: 20px;
+	position: absolute;
+	top: 100%;
+	padding: 1em;
+	color: white;
+	background-color: black;	
+}
+
+.ithubLogo{
+	margin-top: 2.5em;
+	width: 100px;
+	height:fit-content;
+	filter: invert(100%);
+}
+
+.footerText{
+	display: flex;
+	flex-direction: column;
+}
+
+@font-face {
+	font-family: "MerriweatherRegular"; 
+	src: url("../fonts/Merriweather-Regular.ttf") format("truetype"); 
+	font-style: normal; 
+	font-weight: normal; 
+}
