@@ -8,8 +8,7 @@ header{
 	position: absolute;
 	min-width: 100%;
 	max-width: 100%;
-	height: 50vw;
-	
+	top: -30%;
 }
 
 main{
@@ -41,7 +40,7 @@ main{
 	transform: scale(1.1);
 }
 
-#pugalo{
+#firstDialogue{
 	display: none;
 }
 

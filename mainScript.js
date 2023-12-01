@@ -7,6 +7,6 @@ function beginButtonClicked()
 {
     firstStep.style.display= 'none';
     header.style.display= 'none';
-    pugalo.style.display= 'flex';
-    mainImg.style.filter = 'grayscale(50%)'
+    firstDialogue.style.display= 'flex';
+    mainImg.style.filter = 'grayscale(30%)'
 }
