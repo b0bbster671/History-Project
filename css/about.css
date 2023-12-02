@@ -1,14 +1,64 @@
-#about{
-	margin-top: 1vw;
+header{
 	text-align: center;
-	
-}
-
-span{
 	font-size: 4vw;
-	padding: 10px;
+	padding: 1vw;
 	color: white;
 	background-color: #e2ffe200;
 	
 	text-shadow: 4px 4px 5px #000000;
+}
+
+#about{
+	display: flex;
+	flex-direction: row;
+	gap: 5vh;
+	
+	margin-top: 5vh;
+
+	justify-content: center;
+}
+
+.name{
+	font-size: 3vw;
+	color: white;
+	background-color: #e2ffe200;
+	
+	text-shadow: 4px 4px 5px #000000;
+}
+
+.post{
+	font-size: 1.5vw;
+	font-style: italic;
+	color: white;
+	background-color: #e2ffe200;
+	
+	text-shadow: 4px 4px 5px #000000;
+}
+
+img:not(.ithubLogo) {
+	height: 20vh;
+	width: 20vh;
+	object-fit: scale-down;
+	box-shadow: 4px 4px 5px #000000;
+}
+
+.membersGroup{
+	display: flex;
+	flex-direction: column;
+	gap: 5vh;
+	width: fit-content;
+}
+
+.member{
+	display: flex;
+	flex-direction: row;
+	gap: 2vw;
+
+	width:fit-content;
+}
+
+.memberText{
+	display: flex;
+	flex-direction: column;
+	gap: 1vh;
 }

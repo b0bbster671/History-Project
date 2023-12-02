@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Приключение в России 15-16 века</title>
+</head>
+<body>
+    <h1>Приключение в России 15-16 века</h1>
+    
+    <p id="story">Вы прибываете в город</p>
+    <div id="buttons">
+        <button onclick="makeChoice('ahead')">Далее</button>
+        
+    </div>
+
+    <script>
+        function makeChoice(choice) {
+            var storyElement = document.getElementById('story');
+
+            if (choice === 'ahead') {
+                storyElement.innerText = 'Набитыш: как думаешь, всегда ли с колдунами поступали также, как с этими несчастными?';
+                replaceButtons(['Далее'], ['continue']);
+            } else if (choice === 'continue') {
+                
+                replaceButtons(['Нет, раньше люди были добрее', 'Думаю, да. Не просто же так меня выгнали из родного города'], ['choice_1', 'choice_2']);
+            } else if (choice === 'choice_1') {
+                storyElement.innerText = 'Набитыш: Я думаю, люди во все времена были одинаковые. Но с колдунами так поступали не всегда, ведь до принятия христианства государство и закон не применяли никаких мер насчет язычеств.Лишь с принятием христианства в 10 веке, отношение к колдовству стало меняться?';
+                replaceButtons(['Далее'], ['continue_2']);
+                
+            } else if (choice === 'choice_2') {
+                storyElement.innerText = 'Набитыш: А вот и нет. Лишь с принятием христианства в 10 веке, отношение к колдовству стало меняться. До этого правительство и закон не применяло никаких мер насчет язычества. ';
+                replaceButtons(['Далее'], ['continue_2']);
+            } else if (choice === 'continue_2') {
+                storyElement.innerText = 'Мой друг из Москвы рассказывал что-то подобное';
+                replaceButtons(['Далее'], ['continue_3']);
+            }
+            else if (choice === 'continue_3') {
+                storyElement.innerText = 'Набитыш: И он не врал! В период правления Ивана Грозного было введено законодательство, ограничивающие магические практики и ведьмологию. В этот период также проходили охоты на ведьм и усиление контроля со стороны церкви.';
+                replaceButtons(['Далее'], ['continue_4']);
+            }
+            else if (choice === 'continue_4') {
+                storyElement.innerText = 'Набитыш: Я думаю, стоит продолжить свой путь, иначе мы можем составить компанию тем колдунам';
+                
+            }
+            
+           
+        }
+
+        function replaceButtons(labels, choices) {
+            var buttonsContainer = document.getElementById('buttons');
+            buttonsContainer.innerHTML = '';
+
+            for (var i = 0; i < labels.length; i++) {
+                var button = document.createElement('button');
+                button.innerText = labels[i];
+                button.onclick = (function(choice) {
+                    return function() {
+                        makeChoice(choice);
+                    };
+                })(choices[i]);
+
+                buttonsContainer.appendChild(button);
+            }
+        }
+    </script>
+</body>
+</html>
