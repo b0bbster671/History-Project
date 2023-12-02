@@ -49,11 +49,9 @@ function checkCharacter(){
     }
 }
 
-var aheadButton = document.getElementById("aheadButton");
-
 document.addEventListener("keydown", function(event) {
   if (event.key == "ArrowRight") {
     event.preventDefault();
-    document.getElementById("aheadButton").click();
+    document.getElementsByClassName("aheadButton").item(0).click();
   }
 });
