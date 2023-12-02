@@ -1,0 +1,41 @@
+#fieldImg{
+	z-index: -1;
+	display: block;
+	position: absolute;
+	min-width: 100%;
+	max-width: 100%;	
+	height: 100%;
+	object-fit: cover;
+}
+
+.characters{
+text-align: center;
+padding-top: 100px;
+margin-left: auto;
+margin-right: auto;
+}
+
+#description{
+	text-align: center;
+	margin-top: 0%;
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 2vw;
+	padding: 10px;
+	color: whitesmoke;
+	background-color: #e2ffe200;
+	text-shadow: 4px 4px 5px #000000;
+}
+
+.image {
+ background: rgba(190, 181, 181, 0);
+}
+
+.image img {
+	opacity: 0.6;
+}
+
+
+
+
+
