@@ -33,6 +33,7 @@ function aheadClicked(){
     else
     {
         window.location.href = 'page2.html';
+        checkCharacter();
     }
 }
 
