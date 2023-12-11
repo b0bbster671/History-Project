@@ -1,0 +1,41 @@
+.ellipse{ 
+    width: 200px;
+    height: 200px;
+    right: 30px;
+}
+
+.text{
+    text-align: center;
+    color: white;
+    font-size: 35px;    
+}
+
+a, u {
+    text-decoration: none;
+  }
+
+.icons{
+    width: 130px;
+    height: 130px;
+    z-index: 1;
+    position: absolute;
+    margin-left: -165px;
+    margin-top: 32px;    
+
+}
+
+.container{
+    position: relative;
+    margin-top: 28vh;
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+
+}
+
+.circles{
+    display: flex;
+    justify-content: center;
+    gap: 10vw;    
+
+}
