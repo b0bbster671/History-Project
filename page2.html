@@ -7,8 +7,15 @@
     </head>
     <body>
         <img id="imgRock" src="Images/rock.jpg">
-        <main>        
-            <div class="dialogue"><p>Владимир: ыыыы</p></div>
+        <img id="pugaloImg" src="Images/pugalo2.png">
+	    <img id="mageImg" src="Images/white hat.png">
+        <main>
+            <div class="dialogue">
+                <p id="story"><b>Набитыш</b>: Здравствуй! Меня зовут Набитыш. Что привело тебя сюда?</p>
+                <div id="buttons">
+                    <button class="aheadButton" onclick="makeChoice('ahead')">Далее</button>
+                </div>
+            </div>
         </main>
         <footer>
             <img class="ithubLogo" src="Images/IThub.png">
@@ -21,5 +28,113 @@
             </div>
         </footer>
         <script src="mainScript.js"></script>
+        <script>
+            function makeChoice(choice) {
+                var storyElement = document.getElementById('story');
+                var dialogueText = document.getElementById('dialogueText');
+    
+                if (choice === 'ahead') {
+                    storyElement.innerHTML = '<b>Владимир</b>: Вот это да, говорящее пугало! Здравствуй, Набитыш. Меня зовут Владимир, я странствующий волхв, который много лет пытается найти свое место в этом мире. Сейчас я остановился в деревне, неподалеку отсюда. Но, кажется, я заблудился, и никак не пойму, где сейчас нахожусь.';
+                    checkCharacter();
+                    replaceButtons(['Далее'], ['continue']);
+                } else if (choice === 'continue') {
+                    storyElement.innerHTML = '<b>Набитыш</b>: Не переживай, Владимир. Я очень долго живу в этих краях, и за это время успел сделать карту местности. #дает нам карту#';
+                    checkCharacter();
+                    replaceButtons(['Далее'], ['continue_2']);
+                } else if (choice === 'continue_2') {
+                    storyElement.innerHTML = 'Пройдя немного дальше, вы замечаете небольшую толпу, которая собралась около плачущей девочки.';
+                    checkCharacter();
+                    replaceButtons(['Далее'], ['continue_3']);
+                } else if (choice === 'continue_3') {
+                    storyElement.innerHTML = '<b>Владимир</b>: Что здесь произошло?';
+                    checkCharacter();
+                    replaceButtons(['Далее'], ['continue_4']);
+                } else if (choice === 'continue_4') {
+                    storyElement.innerHTML = '<b>Житель</b>: Сегодня утром, мы заметили, что у нашей доченьки появились какие-то комья на голове. Нам кажется, что она больна страшным недугом. Какая потеря для нашей семьи..';
+                    checkCharacter();
+                    replaceButtons(['Далее'], ['continue_5']);
+                } else if (choice === 'continue_5') {
+                    storyElement.innerHTML = '<b>Набитыш</b>: Мы поможем вам. Позвольте, Владимир осмотрит вашу голову, он колдун, он сможет что-то сделать ';
+                    checkCharacter();
+                    replaceButtons(['Далее'], ['continue_6']);
+                }
+                else if (choice === 'continue_6') {
+                    storyElement.innerHTML = '<b>Владимир</b>: Да, я вижу колтуны на голове вашей дочери. Возможно, какой-то незнакомый маг наложил на вас колдовство. Но я смогу это исправить.';
+                    checkCharacter();
+                    replaceButtons(['Далее'], ['continue_7']);
+                }
+                else if (choice === 'continue_7') {
+                    storyElement.innerHTML = 'Покопавшись в своей сумке, вы достаете зубчатый деревянный предмет, с вырезанными узорами на нем, и начинаете распутывать колтун, шепча различные заклинания. Через 10 минут волосы на голове девушки были гладкими и шелковистыми, и самое главное - без колтунов.';
+                    checkCharacter();
+                    replaceButtons(['Далее'], ['continue_8']);
+                }
+                else if (choice === 'continue_8') {
+                    storyElement.innerHTML = '<b>Житель</b>: Спасибо вам большое, за то что исцелили нашу дочурку от недуга! Мы вам очень благодарны';
+                    checkCharacter();
+                    replaceButtons(['Далее'], ['continue_9']);
+                }
+                else if (choice === 'continue_9') {
+                    storyElement.innerHTML = '<b>Набитыш</b>: Хорошо, что ты решился помочь этой несчастной, ведь в народе считается, что колтуны - признак проклятия.';
+                    checkCharacter();
+                    replaceButtons(['Далее'], ['continue_10']);
+                }
+                else if (choice === 'continue_10') {
+                    storyElement.innerHTML = 'Наступает вечер. Вы сидите у себя дома со своим новым другом, как вдруг, слышите стук в дверь.';
+                    checkCharacter();
+                    replaceButtons(['Далее'], ['continue_11']);
+                }
+                else if (choice === 'continue_11') {
+                    storyElement.innerHTML = '<b>Житель</b>: Здравствуйте, мне сказали, что здесь живет хороший колдун. Сегодня у моего друга свадьба, а его родители переживают, что какой-нибудь неизвестный колдун захочет навредить молодым. Не могли бы вы прийти к нам на свадьбу, чтобы помочь, если произойдет какая-нибудь беда.';
+                    checkCharacter();
+                    replaceButtons(['Далее'], ['continue_12']);
+                }
+                else if (choice === 'continue_12') {
+                    storyElement.innerHTML = '<b>Владимир</b>: Здравствуй. Хорошо, я помогу вам';
+                    checkCharacter();
+                    replaceButtons(['Далее'], ['continue_13']);
+                }
+                else if (choice === 'continue_13') {
+                    storyElement.innerHTML = '<b>Набитыш</b>: Почему люди решили обратиться именно к тебе, а не стали разбираться самостоятельно?';
+                    checkCharacter();
+                    replaceButtons(['Далее'], ['continue_14']);
+                }
+                else if (choice === 'continue_14') {
+                    storyElement.innerHTML = 'Потому что крестьяне боятся знаний ничут не меньше, чем колдовства, а про колдунов они ведь ничего не знают. Конечно, базовыми навыками знахарства обладал каждый крестьянин, а к кому-то вроде меня обращались только в особо трудных случаях.';
+                    checkCharacter();
+                    replaceButtons(['Далее'], ['continue_15']);
+                }
+                else if (choice === 'continue_15') {
+                    storyElement.innerHTML = 'Герои отправились на свадьбу, где хорошо провели время. Ничего не произошло, неизвестный колдун не объявился, все присутствуюзие на праздике были благодарны вам за помощь. На следующий день, герои отправились в путь.';
+                    checkCharacter();
+                    replaceButtons(['Далее'], ['continue_16']);
+                }
+                
+            }
+    
+            function replaceButtons(labels, choices) {
+                var buttonsContainer = document.getElementById('buttons');
+                buttonsContainer.innerHTML = '';
+
+                for (var i = 0; i < labels.length; i++) {
+                    var button = document.createElement('button');
+                    if(labels.length == 1)
+                        button.className = 'aheadButton';
+                    button.innerText = labels[i];
+                    button.onclick = (function(choice) {
+                        return function() {
+                            makeChoice(choice);
+                        };
+                    })(choices[i]);
+
+                    buttonsContainer.appendChild(button);
+                }
+                
+                if(labels.length > 1){
+                    buttonsContainer.className = 'choicesButtons';
+                }
+            }
+
+            
+        </script>
     </body>
 </html>

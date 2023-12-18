@@ -8,7 +8,7 @@ function beginButtonClicked()
     mainImg.src = 'Images/izba2.jpg';    
 }
 
-var dialogueText = document.getElementById('dialogueText');
+var story = document.getElementById('story');
 
 const plotText = ["<b>Вы:</b> Кажется, сегодня я спал слишком долго", 
 "<i>Собрав свои вещи, вы выходите на улицу.</i>",
@@ -25,7 +25,7 @@ function aheadClicked(){
             mainImg.src = 'Images/village.jpg';
             mainImg.id = 'villageImg';
         }            
-        dialogueText.innerHTML = plotText[i];
+        story.innerHTML = plotText[i];
         i++;
 
         checkCharacter();
@@ -38,10 +38,10 @@ function aheadClicked(){
 }
 
 function checkCharacter(){
-    if(dialogueText.innerText.startsWith('Вы:') || dialogueText.innerText.startsWith('Владимир:')){
+    if(story.innerText.startsWith('Вы:') || story.innerText.startsWith('Владимир:')){
         mageImg.style.display = 'block';
         pugaloImg.style.display = 'none';
-    }else if(dialogueText.innerText.startsWith('Набитыш:') || dialogueText.innerText.startsWith('Пугало:')){
+    }else if(story.innerText.startsWith('Набитыш:') || story.innerText.startsWith('Пугало:')){
         mageImg.style.display = 'none';
         pugaloImg.style.display = 'block';
     }else{
