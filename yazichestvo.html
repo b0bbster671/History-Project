@@ -72,6 +72,8 @@
 
             for (var i = 0; i < labels.length; i++) {
                 var button = document.createElement('button');
+                if(labels.length == 1)
+                    button.className = 'aheadButton';
                 button.innerText = labels[i];
                 button.onclick = (function(choice) {
                     return function() {
@@ -82,11 +84,7 @@
                 buttonsContainer.appendChild(button);
             }
             
-            if(labels.length == 1){
-                buttonsContainer.className = 'aheadButton';
-            }
-            else 
-            {
+            if(labels.length > 1){
                 buttonsContainer.className = 'choicesButtons';
             }
         }
