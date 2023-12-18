@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Сюжетная карта</title>
+  <link rel="stylesheet" href="style_map.css">
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f2f2f2;
+      font-family: Arial, sans-serif;
+    }
+    
+    .map {
+      width: 100%;
+      max-width: 600px; 
+      cursor: pointer;
+    }
+    
+    .point {
+      position: absolute;
+      padding: 10px;
+      border: 1px solid #ccc;
+      cursor: pointer;
+    }
+    
+    #narod {
+      background-color: burlywood;
+      width: 70px;
+    }
+    
+    #gosudarstvo {
+      background-color: burlywood;
+      width: 70px;
+    }
+    
+    #yazychestvo {
+      background-color: burlywood;
+      width: 70px;
+    }
+    
+    #marker {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: red;
+      border-radius: 50%;
+      transition: left 0.5s ease, top 0.5s ease;
+      margin-top: 190px;
+      margin-left: 10px; 
+    }
+  </style>
+</head>
+<body>
+
+<img src="photo_2023-12-05_10-54-33.jpg" alt="Карта" id="map" class="map" onclick="handleMapClick(event)">
+
+<div id="narod" class="point" style="left: 670px; top: 420px;" onclick="goTo('Народ')">Народ <a href="narod.html"></a></div>
+<div id="gosudarstvo" class="point" style="left: 835px; top: 280px;" onclick="goTo('Государство')">Государство</div>
+<div id="yazychestvo" class="point" style="left: 1125px; top: 430px;" onclick="goTo('Язычество')">Язычество</div>
+<div id="marker" class="marker"></div>
+
+<script>
+  let currentPoint = 'Народ';
+
+  function goTo(point) {
+    switch (point) {
+      case 'Народ':
+        updateMarkerPosition(670, 225); 
+        window.location.href = "narod.html";
+        
+        break;
+      
+    }
+    currentPoint = point;
+    updateUI();
+  }
+
+  function updateMarkerPosition(left, top) {
+    const marker = document.getElementById('marker');
+    marker.style.left = left + 'px';
+    marker.style.top = top + 'px';
+  }
+
+  function updateUI() {
+    document.querySelectorAll('.point').forEach(point => {
+      point.style.display = point.id === currentPoint.toLowerCase() ? 'none' : 'block';
+    });
+  }
+
+  function handleMapClick(event) {
+    const x = event.clientX - document.getElementById('map').getBoundingClientRect().left;
+    const y = event.clientY - document.getElementById('map').getBoundingClientRect().top;
+
+    if (isInsidePoint(x, y, 'narod')) {
+      goTo('Народ');
+    } else if (isInsidePoint(x, y, 'gosudarstvo')) {
+      goTo('Государство');
+    } else if (isInsidePoint(x, y, 'yazychestvo')) {
+      goTo('Язычество');
+    }
+  }
+
+  function isInsidePoint(x, y, pointId) {
+    const point = document.getElementById(pointId);
+    const rect = point.getBoundingClientRect();
+    return x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom;
+  }
+</script>
+
+</body>
+</html>
+
+
+
+

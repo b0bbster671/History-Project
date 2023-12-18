@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/base.css">
+    <title>Приключение в России 15-16 века</title>
+</head>
+<body>
+    <h1>Приключение в России 15-16 века</h1>
+
+    <p id="story">Вы просыпаетесь в темном лесу. Перед вами стоит Набитыш. Вы начинаете диалог</p>
+    <div>
+        <div id="buttons">
+            <button onclick="makeChoice('ahead')">Далее</button>
+            <a href="GLOB_MAP.html">Обратно к карте</a>
+        </div>
+    </div>
+
+    <script>
+        function makeChoice(choice) {
+            var storyElement = document.getElementById('story');
+
+            if (choice === 'ahead') {
+                storyElement.innerHTML = '<b>Владимир</b>: Слушай, а ты уверен, что нужно возвращаться к истокам? Ведь еще в юношестве мне уже доводилось все это изучать';
+                replaceButtons(['Далее'], ['continue']);
+            } else if (choice === 'continue') {
+                storyElement.innerHTML = '<b>Набитыш</b>: Да, я понимаю, что ты искусный маг, но возвращаться к истокам иногда полезно, дабы освежить знания о тех далеких временах. Тот лес уже неподалеку.';
+                replaceButtons(['Далее'], ['continue_2']);
+            } else if (choice === 'continue_2') {
+                storyElement.innerHTML = '<b>Набитыш</b>: Гляди-ка. Узнаешь, чем они занимаются?';
+                replaceButtons(['Владимир:Конечно, это какой-то обезумевший народ, который просто дурачится', 'Владимир:Я думаю, это какой-то обряд'], ['choice_1', 'choice_2']);
+            } else if (choice === 'choice_1') {
+                storyElement.innerHTML = '<b>Набитыш</b>: Так может показаться на первый взгляд, но на деле они проводят обряд. Древнерусские традиции включали в себя различные обряды, связанные с жизненными событиями, такими как рождение, брак и смерть. Ритуалы направлялись на обеспечение благополучия и защиты';
+                replaceButtons(['Далее'], ['continue_3']);
+            } else if (choice === 'choice_2') {
+                storyElement.innerHTML = '<b>Набитыш</b>: Все верно! Древнерусские традиции включали в себя различные обряды, связанные с жизненными событиями, такими как рождение, брак и смерть. Ритуалы направлялись на обеспечение благополучия и защиты';
+                replaceButtons(['Далее'], ['continue_3']);
+            } else if (choice === 'continue_3') {
+                storyElement.innerHTML = '<b>Набитыш</b>: Я думаю, стоит пойти дальше. Кажется, впереди есть поляна';
+                replaceButtons(['Владимир:Кажется, он потерялся и думает, что статуя', 'Владимир:Кажется, он пытается наделить свой меч чем-то волшебным'], ['choice_3', 'choice_4']);
+            }
+            else if (choice === 'choice_3') {
+                storyElement.innerHTML = '<b>Набитыш</b>: Возможно. Но на самом деле он держит в руках свой талисман, обычно люди используют талисманы для защиты от негативных воздействий или привлечения положительных энергий. А в лесу он для того, чтобы установить связь с природой. Верование в силу природы, духов-важная часть русской магии. Различные обряды проводились в честь природных явлений.';
+                replaceButtons(['Далее'], ['continue_4']);
+            }
+            else if (choice === 'choice_4') {
+                storyElement.innerHTML = '<b>Набитыш</b>: Верно! Он держит в руках свой талисман, обычно люди используют талисманы для защиты от негативных воздействий или привлечения положительных энергий.  А в лесу он для того, чтобы установить связь с природой. Верование в силу природы, духов-важная часть русской магии. Различные обряды проводились в честь природных явлений.';
+                replaceButtons(['Далее'], ['continue_4']);
+            }
+            else if (choice === 'continue_4') {
+                storyElement.innerHTML = '<b>Владимир</b>: Ну это я и сам помню, когда-то практиковал подобное.';
+                replaceButtons(['Далее'], ['continue_5']);
+            }
+            else if (choice === 'continue_5') {
+                storyElement.innerHTML = '<b>Набитыш</b>: И что же он делает?';
+                replaceButtons(['Далее'], ['continue_6']);
+            }
+            else if (choice === 'continue_6') {
+                storyElement.innerHTML = '<b>Владимир</b>:Он применяет какое-то заклинание в виде словесных форм и жестов, чтобы повлиять на события и людей';
+                replaceButtons(['Далее'], ['continue_7']);
+            }
+            else if (choice === 'continue_7') {
+                storyElement.innerHTML = '<b>Набитыш</b>: Либо он колдун-заговорщик. Заговоры часто применяются для защиты от злых сил, привлечения сил или удачи';
+                replaceButtons(['Далее'], ['continue_8']);
+            }
+
+        }
+
+        function replaceButtons(labels, choices) {
+            var buttonsContainer = document.getElementById('buttons');
+            buttonsContainer.innerHTML = '';
+
+            for (var i = 0; i < labels.length; i++) {
+                var button = document.createElement('button');
+                button.innerText = labels[i];
+                button.onclick = (function(choice) {
+                    return function() {
+                        makeChoice(choice);
+                    };
+                })(choices[i]);
+
+                buttonsContainer.appendChild(button);
+            }
+
+            if(labels.length == 1){
+                buttonsContainer.className = 'aheadButton';
+            }
+            else 
+            {
+                buttonsContainer.className = 'choicesButtons';
+            }
+        }
+    </script>
+</body>
+</html>

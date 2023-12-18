@@ -1,0 +1,44 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f2f2f2;
+    font-family: Arial, sans-serif;
+
+}
+.map {
+    width: 100%;
+    max-width: 600px; 
+    cursor: pointer;
+}
+.point {
+    position: absolute;
+    padding: 10px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+#narod{
+    background-color: burlywood;
+    width: 70px;
+}
+#gosudarstvo{
+    background-color: burlywood;
+    width: 70px;
+}
+#yazychestvo{
+    background-color: burlywood;
+    width: 70px;
+}
+#marker{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border-radius: 50%;
+    transition: 0.5s ease;
+    margin-top: 190px;
+    margin-right: 215px;
+    
+}
