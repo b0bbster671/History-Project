@@ -4,26 +4,26 @@ function beginButtonClicked()
     header.style.display= 'none';
     firstDialogue.style.display= 'flex';
     //mainImg.style.filter = 'grayscale(30%)'
-    mainImg.style.filter = 'brightness(130%)';
-    mainImg.src = 'Images/izba2.jpg';    
+    izbaImg.style.filter = 'brightness(130%)';
+    izbaImg.src = 'Images/izba2.jpg';
 }
 
 var story = document.getElementById('story');
 
 const plotText = ["<b>Вы:</b> Кажется, сегодня я спал слишком долго", 
-"<i>Собрав свои вещи, вы выходите на улицу.</i>",
-"<b>Вы:</b> Ну и жара сегодня...", "<i>Посмотрев по сторонам, вы решаете пойти искупаться в реке, что лежит за лесом, чтобы освежиться.</i>"];
+"Собрав свои вещи, вы выходите на улицу.",
+"<b>Вы:</b> Ну и жара сегодня...", "Посмотрев по сторонам, вы решаете пойти искупаться в реке, что лежит за лесом, чтобы освежиться."];
 var i = 0; 
 
 function aheadClicked(){
     if(i < plotText.length)
     {
         if(i == 1)
-            mainImg.style.filter = 'brightness(100%)';
+            izbaImg.style.filter = 'brightness(100%)';
         if(i == 2)
         {
-            mainImg.src = 'Images/village.jpg';
-            mainImg.id = 'villageImg';
+            izbaImg.src = 'Images/village.jpg';
+            izbaImg.id = 'villageImg';
         }            
         story.innerHTML = plotText[i];
         i++;
@@ -32,7 +32,7 @@ function aheadClicked(){
     }
     else
     {
-        window.location.href = 'page2.html';
+        window.location.href = 'rock.html';
         checkCharacter();
     }
 }
@@ -55,4 +55,8 @@ document.addEventListener("keydown", function(event) {
     event.preventDefault();
     document.getElementsByClassName("aheadButton").item(0).click();
   }
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    checkCharacter();
 });

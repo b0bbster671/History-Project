@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link href="css/page2.css" rel="stylesheet">
+        <link href="css/base.css" rel="stylesheet">
+    </head>
+    <body>
+        <img id="imgRock" src="Images/rock.jpg">
+        <img id="pugaloImg" src="Images/pugalo2.png">
+	    <img id="mageImg" src="Images/white hat.png">
+        <main>
+            <div class="dialogue">
+                <p id="story">Кажется, вы заблудились. Идя по знакомой вам тропинке, вы оказались перед большим камнем, который раньше не видели в этом лесу.
+                    Подойдя ближе, вы замечаете что-то странное. Возле камня стоит пугало, которое обычно стоит на полях.</p>
+                <div id="buttons">
+                    <button class="aheadButton" onclick="makeChoice('ahead')">Далее</button>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <img class="ithubLogo" src="Images/IThub.png">
+            <div class="footerText">
+                <h4>Внутренний портал студентов ИТ-колледжа</h4>
+                <p>Этот сайт является внутренним ресурсом ИТ-колледжа ИТхаб-Екатеринбург и предназначен для использования ИСКЛЮЧИТЕЛЬНО преподавателями, администрацией колледжа и родителями студентов колледжа.
+                Если Вы не являетесь сотрудником колледжа или родителем студента колледжа ИТхаб-Екатернинбург, или, если Вы не получили разрешение на доступ от администрации колледжа - просим немедленно покинуть этот сайт.
+                Просим воздерживаться от неправомерного или неправомочного доступа.
+                2021-2023 © IThub-Ekat Колледж организованный работодателями</p>
+            </div>
+        </footer>
+        <script src="mainScript.js"></script>
+        <script>
+            function makeChoice(choice) {
+                var storyElement = document.getElementById('story');
+                var dialogueText = document.getElementById('dialogueText');
+
+                if (choice === 'ahead') {
+                    storyElement.innerHTML = '<b>Набитыш</b>: Здравствуй! Меня зовут Набитыш. Что привело тебя сюда?';
+                    checkCharacter();
+                    replaceButtons(['Далее'], ['continue']);
+                }
+                else if (choice === 'continue') {
+                    storyElement.innerHTML = '<b>Владимир</b>: Вот это да, говорящее пугало! Здравствуй, Набитыш. Меня зовут Владимир, я странствующий волхв, который много лет пытается найти свое место в этом мире. Сейчас я остановился в деревне, неподалеку отсюда. Но, кажется, я заблудился, и никак не пойму, где сейчас нахожусь.';
+                    checkCharacter();
+                    replaceButtons(['Далее'], ['continue_0']);
+                } else if (choice === 'continue_0') {
+                    storyElement.innerHTML = '<b>Набитыш</b>: Не переживай, Владимир. Я очень долго живу в этих краях, и за это время успел сделать карту местности.';
+                    checkCharacter();                    
+                    replaceButtons(['Далее'], ['continue_20']);
+                } else if (choice === 'continue_20'){
+                    window.location.href = 'karta.html';                    
+                }
+            }
+    
+            function replaceButtons(labels, choices) {
+                var buttonsContainer = document.getElementById('buttons');
+                buttonsContainer.innerHTML = '';
+
+                for (var i = 0; i < labels.length; i++) {
+                    var button = document.createElement('button');
+                    if(labels.length == 1)
+                        button.className = 'aheadButton';
+                    button.innerText = labels[i];
+                    button.onclick = (function(choice) {
+                        return function() {
+                            makeChoice(choice);
+                        };
+                    })(choices[i]);
+
+                    buttonsContainer.appendChild(button);
+                }
+                
+                if(labels.length > 1){
+                    buttonsContainer.className = 'choicesButtons';
+                }
+            }            
+        </script>
+    </body>
+</html>

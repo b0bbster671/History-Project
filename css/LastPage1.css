@@ -7,12 +7,13 @@
 .text{
     text-align: center;
     color: white;
-    font-size: 35px;    
+    font-size: 35px;
+    text-shadow: 4px 4px 5px #000000;
 }
 
 a, u {
-    text-decoration: none;
-  }
+    text-decoration: none;    
+}
 
 .icons{
     width: 130px;
@@ -30,12 +31,25 @@ a, u {
     display: flex;
     flex-direction: column;
     gap: 1vh;
+    margin-right: 10vh;
+    
+}
 
+.paganism{
+    margin-right: 0px;
 }
 
 .circles{
     display: flex;
     justify-content: center;
-    gap: 10vw;    
 
+}
+
+main{
+    display: flex;
+    justify-content: center;
+}
+
+.dialogue{
+    text-align: center;
 }

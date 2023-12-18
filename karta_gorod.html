@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Сюжетная карта</title>
   <link rel="stylesheet" href="style_map.css">
+  <link rel="stylesheet" href="css/base.css">
   <style>
     body {
       display: flex;
@@ -12,57 +13,63 @@
       align-items: center;
       height: 100vh;
       margin: 0;
-      background-color: #f2f2f2;
-      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;      
     }
     
     .map {
       width: 100%;
-      max-width: 600px;
+      max-width: 70vh; 
       cursor: pointer;
+      font-size: 2vh;
     }
     
     .point {
       position: absolute;
-      padding: 10px;
-      border: 1px solid #ccc;
+      padding: 1vh;
+      border: 1vh solid #ccc;
       cursor: pointer;
     }
     
     #narod {
       background-color: burlywood;
-      width: 70px;
+      width: 5vw;
+      
+      
     }
     
     #gosudarstvo {
       background-color: burlywood;
-      width: 70px;
+      width: 5.5vw;
+    }
+
+    #gosudarstvo:hover{
+      transform: scale(1.1);
     }
     
     #yazychestvo {
       background-color: burlywood;
-      width: 70px;
+      width: 5vw;
     }
     
     #marker {
       position: absolute;
-      width: 20px;
-      height: 20px;
+      width: 1.2vw;
+      height: 2vh;
       background-color: red;
       border-radius: 50%;
       transition: left 0.5s ease, top 0.5s ease;
-      margin-top: -50px;
-      margin-left: -300px; 
+      margin-top: 1vh;
+      margin-left: -19vw; 
     }
   </style>
 </head>
 <body>
+<img id="izbaImg" src="Images/gorod.jpg">
+<img src="Интерактивная карта (1).png" alt="Карта" id="map" class="map" onclick="handleMapClick(event)">
 
-<img src="Images/photo_2023-12-05_10-54-33.jpg" alt="Карта" id="map" class="map" onclick="handleMapClick(event)">
-
-<div id="narod" class="point" style="left: 670px; top: 420px;" onclick="goTo('Народ')">Народ <a href="narod.html"></a></div>
-<div id="gosudarstvo" class="point" style="left: 835px; top: 280px;" onclick="goTo('Государство')">Государство</div>
-<div id="yazychestvo" class="point" style="left: 1125px; top: 430px;" onclick="goTo('Язычество')">Язычество</div>
+<div id="narod" class="point" style="left: 34vw; top: 45vh;" onclick="goTo('Народ')">Народ</div>
+<div id="gosudarstvo" class="point" style="left: 42vw; top: 28vh;" onclick="goTo('Государство')">Государство</div>
+<div id="yazychestvo" class="point" style="left: 59vw; top: 46vh;" onclick="goTo('Язычество')">Язычество</div>
 <div id="marker" class="marker"></div>
 
 <script>
@@ -73,7 +80,7 @@
       
       case 'Государство':
         updateMarkerPosition(835, 90);
-        window.location.href = "gorod2.html";
+        window.location.href = "gorod.html";
         
         break;
       

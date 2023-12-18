@@ -2,16 +2,6 @@ header{
 	font-size: 24px; 
 }
 
-#villageImg{
-	z-index: -1;
-	display: block;
-	position: absolute;
-	min-width: 100%;
-	max-width: 100%;
-	height: 100%;
-	object-fit: cover;
-}
-
 main{
 	display: flex;
 }

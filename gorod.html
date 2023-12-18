@@ -4,48 +4,76 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/base.css">
     <title>Приключение в России 15-16 века</title>
 </head>
 <body>
-    <h1>Приключение в России 15-16 века</h1>
-    
-    <p id="story">Вы прибываете в город</p>
-    <div id="buttons">
-        <button onclick="makeChoice('ahead')">Далее</button>
-        
-    </div>
-
+    <img id="villageImg" src="Images/gorod.jpg">
+    <img id="pugaloImg" src="Images/pugalo2.png">
+    <img id="mageImg" src="Images/white hat.png">
+    <main>
+        <div class="dialogue">
+            <p id="story">Вы прибываете в город</p>
+            <div id="buttons">
+                <button class="aheadButton" onclick="makeChoice('ahead')">Далее</button>
+                <!-- <a href="karta_yazichestvo.html">Обратно к карте</a> -->
+            </div>
+        </div>
+    </main>
+    <footer>
+        <img class="ithubLogo" src="Images/IThub.png">
+        <div class="footerText">
+            <h4>Внутренний портал студентов ИТ-колледжа</h4>
+            <p>Этот сайт является внутренним ресурсом ИТ-колледжа ИТхаб-Екатеринбург и предназначен для использования ИСКЛЮЧИТЕЛЬНО преподавателями, администрацией колледжа и родителями студентов колледжа.
+            Если Вы не являетесь сотрудником колледжа или родителем студента колледжа ИТхаб-Екатернинбург, или, если Вы не получили разрешение на доступ от администрации колледжа - просим немедленно покинуть этот сайт.
+            Просим воздерживаться от неправомерного или неправомочного доступа.
+            2021-2023 © IThub-Ekat Колледж организованный работодателями</p>
+        </div>
+    </footer>   
+    <script src="mainScript.js"></script>
     <script>
         function makeChoice(choice) {
             var storyElement = document.getElementById('story');
 
             if (choice === 'ahead') {
-                storyElement.innerText = 'Набитыш: как думаешь, всегда ли с колдунами поступали также, как с этими несчастными?';
+                storyElement.innerHTML = '<b>Набитыш</b>: как думаешь, всегда ли с колдунами поступали также, как с этими несчастными?';
+                villageImg.src = 'Images/fire.jpg';
+                
+                checkCharacter();
                 replaceButtons(['Далее'], ['continue']);
             } else if (choice === 'continue') {
                 
                 replaceButtons(['Нет, раньше люди были добрее', 'Думаю, да. Не просто же так меня выгнали из родного города'], ['choice_1', 'choice_2']);
             } else if (choice === 'choice_1') {
-                storyElement.innerText = 'Набитыш: Я думаю, люди во все времена были одинаковые. Но с колдунами так поступали не всегда, ведь до принятия христианства государство и закон не применяли никаких мер насчет язычеств.Лишь с принятием христианства в 10 веке, отношение к колдовству стало меняться?';
+                storyElement.innerHTML = '<b>Набитыш</b>: Я думаю, люди во все времена были одинаковые. Но с колдунами так поступали не всегда, ведь до принятия христианства государство и закон не применяли никаких мер насчет язычеств.Лишь с принятием христианства в 10 веке, отношение к колдовству стало меняться?';
+
+                checkCharacter();
                 replaceButtons(['Далее'], ['continue_2']);
                 
             } else if (choice === 'choice_2') {
-                storyElement.innerText = 'Набитыш: А вот и нет. Лишь с принятием христианства в 10 веке, отношение к колдовству стало меняться. До этого правительство и закон не применяло никаких мер насчет язычества. ';
+                storyElement.innerHTML = '<b>Набитыш</b>: А вот и нет. Лишь с принятием христианства в 10 веке, отношение к колдовству стало меняться. До этого правительство и закон не применяло никаких мер насчет язычества. ';
+
+                checkCharacter();
                 replaceButtons(['Далее'], ['continue_2']);
             } else if (choice === 'continue_2') {
-                storyElement.innerText = 'Мой друг из Москвы рассказывал что-то подобное';
+                storyElement.innerHTML = '<b>Владимир</b>:Мой друг из Москвы рассказывал что-то подобное';
+
+                checkCharacter();
                 replaceButtons(['Далее'], ['continue_3']);
             }
             else if (choice === 'continue_3') {
-                storyElement.innerText = 'Набитыш: И он не врал! В период правления Ивана Грозного было введено законодательство, ограничивающие магические практики и ведьмологию. В этот период также проходили охоты на ведьм и усиление контроля со стороны церкви.';
+                storyElement.innerHTML = '<b>Набитыш</b>: И он не врал! В период правления Ивана Грозного было введено законодательство, ограничивающие магические практики и ведьмологию. В этот период также проходили охоты на ведьм и усиление контроля со стороны церкви.';
+
+                checkCharacter();
                 replaceButtons(['Далее'], ['continue_4']);
             }
             else if (choice === 'continue_4') {
-                storyElement.innerText = 'Набитыш: Я думаю, стоит продолжить свой путь, иначе мы можем составить компанию тем колдунам';
-                
+                storyElement.innerHTML = '<b>Набитыш</b>: Я думаю, стоит продолжить свой путь, иначе мы можем составить компанию тем колдунам';
+                checkCharacter();
+                window.location.href = 'karta_yazichestvo.html';
             }
-            
-           
+
+
         }
 
         function replaceButtons(labels, choices) {
@@ -54,6 +82,8 @@
 
             for (var i = 0; i < labels.length; i++) {
                 var button = document.createElement('button');
+                if(labels.length == 1)
+                        button.className = 'aheadButton';
                 button.innerText = labels[i];
                 button.onclick = (function(choice) {
                     return function() {
@@ -62,6 +92,10 @@
                 })(choices[i]);
 
                 buttonsContainer.appendChild(button);
+            }
+
+            if(labels.length > 1){
+                    buttonsContainer.className = 'choicesButtons';
             }
         }
     </script>
